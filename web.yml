@@ -10,7 +10,7 @@
     - name: VHOST add
       become: true
       shell: |
-         cat << EOF >> /etc/httpd/conf/projectname.conf
+         cat << EOF >> /etc/apache2/sites-available/projectname.conf
          ###### packagename
          <VirtualHost *:80>
          ServerName projectname.zodeak-dev.com
