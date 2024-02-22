@@ -2,5 +2,5 @@ all:
   hosts:
     IP:
       ansible_ssh_extra_args: -o StrictHostKeyChecking=no
-      ansible_ssh_private_key_file:WORKSPACE/webansi/key.pem
+      ansible_ssh_private_key_file:WORKSPACE/key.pem
       ansible_user:USER
