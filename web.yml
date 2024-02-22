@@ -16,83 +16,11 @@
          ServerName projectname.zodeak-dev.com
          DocumentRoot /var/www/html/service/projectname/projectname/client/dist/client
          <Directory /var/www/html/service/projectname/projectname/client/dist/client>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride All
-         Order allow,deny
-         allow from all
-         </Directory>
-         </VirtualHost>
-         <VirtualHost *:80>
-         ServerName adminname.zodeak-dev.com
-         DocumentRoot /var/www/html/service/projectname/adminname/client/dist/demo
-         <Directory /var/www/html/service/projectname/adminname/client/dist/demo>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride All
-         Order allow,deny
-         allow from all
-         </Directory>
-         </VirtualHost>
-         <VirtualHost *:80>
-         ServerName projectnamefrontloops.zodeak-dev.com
-         DocumentRoot /var/www/html/service/projectname/projectname/server/build/server
-         <Directory /var/www/html/service/projectname/projectname/server/build/server>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride All
-         Order allow,deny
-         allow from all
-         </Directory>
-         ProxyPass         /  http://projectnamefrontloops.zodeak-dev.com:SERVERPORT/
-         ProxyPassReverse  /  http://projectnamefrontloops.zodeak-dev.com:SERVERPORT/
-         ProxyRequests     Off
-         ProxyPreserveHost On
-         <Proxy http://projectnamefrontloops.zodeak-dev.com:SERVERPORT/*>
-         Order deny,allow
-         Allow from all
-         </Proxy>
-         </VirtualHost>
-         <VirtualHost *:80>
-         ServerName projectnamefrontsox.zodeak-dev.com
-         DocumentRoot /var/www/html/service/projectname/projectname/server/build/server
-         <Directory /var/www/html/service/projectname/projectname/server/build/server>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride All
-         Order allow,deny
-         allow from all
-         </Directory>
-         ProxyPass / ws://projectnamefrontsox.zodeak-dev.com:socketport/
-         ProxyPassReverse /  ws://projectnamefrontsox.zodeak-dev.com:socketport/
-         ProxyPass         /  http://projectnamefrontsox.zodeak-dev.com:socketport/
-         ProxyPassReverse  /  http://projectnamefrontsox.zodeak-dev.com:socketport/
-         ProxyRequests     Off
-         ProxyPreserveHost On
-         <Proxy http://projectnamefrontsox.zodeak-dev.com:socketport/*>
-         Order deny,allow
-         Allow from all
-         </Proxy>
-         </VirtualHost>
-         <VirtualHost *:80>
-         ServerName adminnameserver.zodeak-dev.com
-         DocumentRoot /var/www/html/service/projectname/adminname/server/build/server
-         <Directory /var/www/html/service/projectname/adminname/server/build/server>
-         Options Indexes FollowSymLinks MultiViews
-         AllowOverride All
-         Order allow,deny
-         allow from all
-         </Directory>
-         ProxyPass         / http://adminnameserver.zodeak-dev.com:adminserverport/graphql
-         ProxyPassReverse  / http://adminnameserver.zodeak-dev.com:adminserverport/graphql
-         ProxyRequests     Off
-         ProxyPreserveHost On
-         <Proxy http://projectnameserver.zodeak-dev.com:adminserverport/*>
-         Order deny,allow
-         Allow from all
+         
          </Proxy>
          </VirtualHost>
          EOF
-         cat << EOF >> /etc/httpd/conf/httpd.conf
-         IncludeOptional conf/projectname.conf
-         EOF
-         service httpd restart
+         
       register: SEQOUT
 
     - debug: msg={{SEQOUT.stdout_lines}}
