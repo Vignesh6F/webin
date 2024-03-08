@@ -13,7 +13,7 @@
          cat << EOF >> /etc/apache2/sites-available/projectname.conf
          ###### packagename
          <VirtualHost *:80>
-         ServerName projectname.zodeak-dev.com
+         ServerName projectname.-dev.com
          DocumentRoot /var/www/html/service/projectname/projectname/client/dist/client
          <Directory /var/www/html/service/projectname/projectname/client/dist/client>
          
